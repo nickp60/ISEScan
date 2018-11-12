@@ -4,16 +4,16 @@ import os.path
 #
 # Set the path variables pointing to the required packages in order that ISEScan can find the required packages
 # on your computer.
-# 
+#
 # FragGeneScan
-FragGeneScan = '/u/zhiqxie/informatics/inst/FragGeneScan1.19/run_FragGeneScan.pl'
+FragGeneScan = '/opt/conda/bin/run_FragGeneScan.pl'
 # Hmmer
-phmmer = '/u/zhiqxie/informatics/inst/hmmer-3.1b2/bin/phmmer'
-hmmsearch = '/u/zhiqxie/informatics/inst/hmmer-3.1b2/bin/hmmsearch'
-# Blast 
-blastn = '/l/ncbi-blast/bin/blastn'
-blastp = '/l/ncbi-blast/bin/blastp'
-makeblastdb = '/l/ncbi-blast/bin/makeblastdb'
+phmmer = '/opt/conda/bin/phmmer'
+hmmsearch = '/opt/conda/bin/hmmsearch'
+# Blast
+blastn = '/opt/conda/bin/blastn'
+blastp = '/opt/conda/bin/blastp'
+makeblastdb = '/opt/conda/bin/makeblastdb'
 
 # Set the path variables pointing to the profile HMM files (clusters.single.faa and clusters.faa.hmm).
 #
@@ -29,7 +29,7 @@ file4clusterHMM = 'clusters.faa.hmm'
 
 # Option switch to report partial IS element
 #
-# If removeShortIS is True, ISEScan will remove partial IS elements which include 
+# If removeShortIS is True, ISEScan will remove partial IS elements which include
 # IS element with length < 400 or single copy IS element without perfect TIR.
 # If removeShortIS is False, ISEScan will report partial IS element as well as full-length IS element.
 # The default is True.
@@ -38,8 +38,8 @@ removeShortIS = True
 #
 # Option switch to report partial IS element
 
-# When translateGenome is True, pipepline will predict and translate genes 
-# from genome sequence into protein database (file in fasta format) 
+# When translateGenome is True, pipepline will predict and translate genes
+# from genome sequence into protein database (file in fasta format)
 # using FragGeneScan program.
 translateGenome = True
 # When translateGenome is False, pipeline will use the protein database (.faa file)
@@ -67,7 +67,7 @@ dir4blastout = os.path.join(path2results, 'blastout')
 # (gapopen, gapextend, match, mismatch)
 #
 # Optimal filter when aligning two sequences with length = maxLenIR
-filters4ssw4isMax = [(1, 10, 4, 5)] # giving the greatest number of matched IS elements and 
+filters4ssw4isMax = [(1, 10, 4, 5)] # giving the greatest number of matched IS elements and
 				# the greatest number of matched best IS elements
 filters4ssw4trial = [(2, 6, 2, 2)] # trial filter to stop alignment from creating the consecutive gaps
 
@@ -77,7 +77,7 @@ minMaxLen4is =	{
 		'IS110': (969, 4105),
 		'IS1182': (1330, 1980),
 		'IS1380': (1474, 4160),
-		'IS1595': (701, 7915), 
+		'IS1595': (701, 7915),
 		# IS1016V5 (272 bp) is a deleted variant of IS1016V6: 242/711 bp. IS1016V4 (672 bp) is a deleted variant of IS1016V6: 673/711 bp.
 		# Then ISMha1 (701 bp) is the shortest member in family IS1595.
 
@@ -93,7 +93,7 @@ minMaxLen4is =	{
 		'IS6': (696, 1648),
 		'IS607': (1415, 2607),
 		'IS630': (895, 2009),
-		'IS66': (1364, 3481), 
+		'IS66': (1364, 3481),
 		# IS867 has about 75 % homology with IS866. IS866 is 2716 bp.
 		# Then ISMno3 (1364 bp) is the shortest member in family IS66.
 		'IS701': (1016, 2207),
@@ -112,14 +112,14 @@ minMaxLen4is =	{
 # The first collumn: shortest tpase ORF (bp)
 # The second collumn: longest tpase ORF (bp)
 # The third collumn: shortest peptide ORF (bp) among all peptides in IS_PEP record for each IS element
-# To be added: shortest tpase (aa), longest tpase (aa), 
+# To be added: shortest tpase (aa), longest tpase (aa),
 # ORF = tpase + stopcodon
 minMax4tpase =	{
 		'IS1': (666, 1119, 252),
 		'IS110': (603, 1380, 156),
 		'IS1182': (822, 1731, 570),
 		'IS1380': (1158, 1554, 1158),
-		'IS1595': (576, 1158, 426), 
+		'IS1595': (576, 1158, 426),
 		'IS1634': (1314, 1875, 1314),
 		'IS200/IS605': (366, 1482, 147),
 		'IS21': (882, 1758, 231),
@@ -132,7 +132,7 @@ minMax4tpase =	{
 		'IS6': (528, 1062, 246),
 		'IS607': (768, 1653, 453),
 		'IS630': (510, 1194, 318),
-		'IS66': (354, 1695, 165), 
+		'IS66': (354, 1695, 165),
 		'IS701': (921, 1410, 921),
 		'IS91': (648, 1548, 648),
 		'IS982': (627, 981, 429),
@@ -147,11 +147,11 @@ minMax4tpase =	{
 
 # allowed minimal and maximal and optimal values of the length of TIR sequence for each family
 # Here, the optimal values are the empirical parameter based on the observations.
-# The 4th collumn is marker indicating whether the family always has TIR (1) or no TIR (0),  
+# The 4th collumn is marker indicating whether the family always has TIR (1) or no TIR (0),
 # and -1 for not determined (in the family, some members have tir but others have no tir).
 minMax4tir = {
 		'IS1': (8, 67, 14, 1),
-		'IS110': (2, 31, 14, -1), 
+		'IS110': (2, 31, 14, -1),
 		'IS1182': (8, 44, 10, 1),
 		'IS1380': (7, 39, 10, 1),
 		'IS1595': (10, 43, 15, 1),
@@ -181,7 +181,7 @@ minMax4tir = {
 		'ISNCY': (4, 52, 13, -1),
 		'new': (10, 50, 20, -1), # use the popular values for the novel IS families in database
 	}
-# ssw will use minMax4tir[2] as minimal length of the alignement of two tir sequences 
+# ssw will use minMax4tir[2] as minimal length of the alignement of two tir sequences
 # if useOPTtir == True else minMax[0] as minimal length of the alignment of two tir sequences.
 #useOPTtir = True
 useOPTtir = False
@@ -195,9 +195,9 @@ stringentIrIdentity = 0.7
 
 # maximum distance (bp) between two neighboring orfs (including +/- strand) within one IS element
 # 764 IS elements with multiple ORFs with clear coordinates in ORF records,
-# 405 with distBetweenORFs >=0, 
-# 1/405 with dist >= 1000, 6/405(1%) with dist >= 500, 14/405(3%) with dist >= 400, 
-# 22/405(5%) with dist >= 300, 31/405(8%) with dist >= 250, 44/405(11%) with dist >= 200, 
+# 405 with distBetweenORFs >=0,
+# 1/405 with dist >= 1000, 6/405(1%) with dist >= 500, 14/405(3%) with dist >= 400,
+# 22/405(5%) with dist >= 300, 31/405(8%) with dist >= 250, 44/405(11%) with dist >= 200,
 # 90/405(22%) with dist >= 100, 202/405(50%) with dist >= 55, 214/405(53%) with dist >= 50
 #
 # not to merge
@@ -207,7 +207,7 @@ stringentIrIdentity = 0.7
 # merge ORFs with gap <= 100 bps
 maxDistBetweenOrfs = 100
 
-# In a dataset, 3891 IS elements with both lORF2TER and rORF2TER >= 0, 
+# In a dataset, 3891 IS elements with both lORF2TER and rORF2TER >= 0,
 # 36/3891(1%) with lORF2TER >= 500, 177/3891(5%) with lORF2TER >= 250,
 # 51/3891 with rORF2TER >= 500, 232/3891 with rORF2TER >= 250
 # ~99% IS elements in dataset has lORF2TER/rORF2TER less than 500 bps
@@ -218,7 +218,7 @@ maxDistBetweenOrfs = 100
 maxDist4ter2orf = 500
 outerDist4ter2tpase = (150,500)
 
-# Minimum distance (bp) from near ends of IS element to the nearest ORF, namely, 
+# Minimum distance (bp) from near ends of IS element to the nearest ORF, namely,
 # the length of the shortest linker between TIR and the nearest ORF.
 minDist4ter2orf = -150
 #minDist4ter2orf = -50
@@ -232,7 +232,7 @@ minDist4ter2orf = -150
 splitAlign2orf = False
 
 # IS elements with identicalBases/lengthOfAlignment > sim4iso are regarded as the same IS element (isoform)
-# Isoforms have been defined as elements which share in the first instance more than 95% identity 
+# Isoforms have been defined as elements which share in the first instance more than 95% identity
 # at the level of their transposase protein sequence or otherwise 90% at the DNA level.
 #sim4iso = 0.85
 sim4iso = 0.9
@@ -256,7 +256,7 @@ min4intersect = 1 # 1 bp.
 overlap2removeRedundancy = 0.5 # 50%
 #overlap2removeRedundancy = 0.99999999999 # 100%
 
-# use min4intersect if True else overlap2removeRedundancy as the threshold to 
+# use min4intersect if True else overlap2removeRedundancy as the threshold to
 # turn on clustering and remove intersected ISs/hits except the representative in a cluster.
 #intersected2remove = True
 intersected2remove = False
@@ -277,14 +277,14 @@ evalue2filterHMMhits = min4evalue
 # Paramter for removing potential falsely discovered novel IS elements (family 'new') and partial IS elements
 #
 # {excludedFamilys:(full,partial,no)}:
-#	{'IS110':(54,19,3), 'IS4':(2,3,1), 'IS5':(2,1,1), 'IS6':(2,0,0), 'IS630':(1,1,7), 
+#	{'IS110':(54,19,3), 'IS4':(2,3,1), 'IS5':(2,1,1), 'IS6':(2,0,0), 'IS630':(1,1,7),
 #	'IS66':(1,0,2), 'IS91':(1,1,2), 'ISAS1':(2,0,0), 'ISH3':(8,1,3), 'ISNCY':(3,1,4)}
-# The full IS elements in the familys above might exist without perfect TIR with irId < 10. 
+# The full IS elements in the familys above might exist without perfect TIR with irId < 10.
 # We should hence exclude these familys when filtering out the partial IS elements without perfect TIR.
 #excludedFamilys = ['IS110', 'IS4', 'IS5', 'IS6', 'IS630', 'IS66', 'IS91', 'ISAS1', 'ISH3', 'ISNCY']
 excludedFamilys = ['IS110', 'IS4', 'IS5', 'IS6', 'ISAS1', 'ISH3', 'ISNCY']
 #
-# number of matches in tir alignment, 
+# number of matches in tir alignment,
 # which are used for removing the potential falsely discovered IS elements (false positive) and partial IS elements without perfect TIR.
 # Refer to removeFalsePositive() and refineHits() in pred.py for more details.
 cutoff4irId4short = 13
@@ -333,25 +333,25 @@ na2ul = 'TAGCYRtagcyr'
 # The Genetic Codes
 # Refer to http://www.ncbi.nlm.nih.gov/Taxonomy/taxonomyhome.html/index.cgi?chapter=cgencodes
 # The Bacterial, Archaeal and Plant Plastid Code (transl_table=11).
-table11 = {	
+table11 = {
 		'starts': ('TTG', 'CTG', 'ATT', 'ATC', 'ATA', 'ATG', 'GTG'),
 
-		'TTT': 'F', 'TTC': 'F', 'TTA': 'L', 'TTG': 'L', 
+		'TTT': 'F', 'TTC': 'F', 'TTA': 'L', 'TTG': 'L',
 		'TCT': 'S', 'TCC': 'S', 'TCA': 'S', 'TCG': 'S',
 		'TAT': 'Y', 'TAC': 'Y', 'TAA': '*', 'TAG': '*',
 		'TGT': 'C', 'TGC': 'C', 'TGA': '*', 'TGG': 'W',
 
-		'CTT': 'L', 'CTC': 'L', 'CTA': 'L', 'CTG': 'L', 
+		'CTT': 'L', 'CTC': 'L', 'CTA': 'L', 'CTG': 'L',
 		'CCT': 'P', 'CCC': 'P', 'CCA': 'P', 'CCG': 'P',
 		'CAT': 'H', 'CAC': 'H', 'CAA': 'Q', 'CAG': 'Q',
 		'CGT': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
 
-		'ATT': 'I', 'ATC': 'I', 'ATA': 'I', 'ATG': 'M', 
+		'ATT': 'I', 'ATC': 'I', 'ATA': 'I', 'ATG': 'M',
 		'ACT': 'T', 'ACC': 'T', 'ACA': 'T', 'ACG': 'T',
 		'AAT': 'N', 'AAC': 'N', 'AAA': 'K', 'AAG': 'K',
 		'AGT': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',
 
-		'GTT': 'V', 'GTC': 'V', 'GTA': 'V', 'GTG': 'V', 
+		'GTT': 'V', 'GTC': 'V', 'GTA': 'V', 'GTG': 'V',
 		'GCT': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A',
 		'GAT': 'D', 'GAC': 'D', 'GAA': 'E', 'GAG': 'E',
 		'GGT': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
